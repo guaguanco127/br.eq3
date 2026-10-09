@@ -1,5 +1,5 @@
 # Max/MSP Abstractions:   
-## br.eq3.1.1
+## br.eq3.1.2
 
 
 
@@ -8,15 +8,17 @@ By Brian Riordan
 [brianriordanmusic@gmail.com](mailto:brianriordanmusic@gmail.com)  
 [https://www.brianriordanmusic.com/](https://www.brianriordanmusic.com/) 
   
-Repository for br.eq3.1.1, with all related files, can be found here: [https://github.com/guaguanco127/br.eq3](https://github.com/guaguanco127/br.eq3)  
+Repository for br.eq3.1.2, with all related files, can be found here: [https://github.com/guaguanco127/br.eq3](https://github.com/guaguanco127/br.eq3)  
 Additional programs can be found here: [https://github.com/guaguanco127/br.max](https://github.com/guaguanco127/br.max)
 
 These files were created with Max 9. 
 
 ## Table of Contents 
 
+[What's new in 1.2](#New12)  
 [What's new in 1.1](#New11)  
 [About](#About)   
+[Which file?](#Files)  
 [What is an abstraction?](#Abstraction)  
 [How To Install](#Install)  
 [How To Use](#Use)  
@@ -25,6 +27,12 @@ These files were created with Max 9.
 [Credits](#Credits)  
  
  
+
+## <a name="New12"></a>What's new in 1.2
+
+- **Two files.** br.eq3.1.2 is now the plain object: no panel, and every control inlet goes straight into gen~, so it takes **signals** as well as numbers (an LFO on a crossover, a fader, another patch's output). Unconnected inlets sit at their defaults. br.eq3.ui.1.2 is the version with the number boxes, the M toggles and the State outlet, for a [bpatcher].
+- Inlets, outlets and the sound are unchanged. If you used 1.1 in a [bpatcher], choose br.eq3.ui.1.2; if you used it as an object box, type br.eq3.1.2 (it has no State outlet, see [Which file?](#Files)).
+- The example patch has a new **plain object** tab: br.eq3.1.2 on a drum loop, set by number boxes, with an LFO sweeping the low crossover.
 
 ## <a name="New11"></a>What's new in 1.1
 
@@ -54,6 +62,18 @@ The panel reads top to bottom from high to low: Hi, Fq (the high crossover), Md,
 
 **Fq:** 50 Hz to 10 kHz. The two crossovers: where low ends and mid begins (default 400 Hz) and where mid ends and high begins (default 4000 Hz). They sort themselves, so either one can be the higher; drag one past the other and they swap roles without a glitch.
 
+## <a name="Files"></a>Which file?
+
+Both files have the same inlets and outlets in the same order (the .ui adds State as its last outlet), so either swaps in without rewiring:
+
+| File | What it is |
+|---|---|
+| br.eq3.1.2 | The plain object, no UI. Control inlets take numbers or signals. Outlets: L, R |
+| br.eq3.ui.1.2 | The same EQ with number boxes, mute toggles and a State outlet, ready for a [bpatcher]. Controls take numbers |
+| _br.eq3.example.1.2 | Example patch: open this first |
+
+br.eq3.ui.1.2 contains br.eq3.1.2, so keep both files together. Open br.eq3.ui.1.2 in patching mode to see how it is built.
+
 ## <a name="Abstraction"></a>What is an Abstraction?
 
 An abstraction is a subpatcher that is saved as an external file, and can be used just like a standard Max object. As long as your abstraction can be found in the Max file path, you can type its name into a new object box and it will be loaded directly into your patch.  
@@ -64,15 +84,15 @@ By saving your logic in an abstraction, you can create modules that can be used 
 
 1. Make sure you have Max 9 installed in your computer. And, make sure you are using a Max patch that is inside of a folder.  
 
-2. Copy and paste br.eq3.1.1.maxpat inside of the same folder as the Max patch you are using.
+2. Copy br.eq3.1.2.maxpat and br.eq3.ui.1.2.maxpat into the same folder as the Max patch you are using (br.eq3.ui.1.2 uses br.eq3.1.2).
 
-3. To use the built-in controls, create a bpatcher object. Then, go inside of its inspector, select "choose" next to "Patcher File" and select the abstraction located within the same folder as your project. Size the bpatcher to 96 x 123 to show all of the controls.
+3. For the version with controls, create a bpatcher object. Then, go inside of its inspector, select "choose" next to "Patcher File" and select br.eq3.ui.1.2.maxpat. Size the bpatcher to 96 x 123 to show all of the controls.
 
-4. Alternatively, create an object with the abstraction's name ([br.eq3.1.1], do not include brackets) and control it through its inlets (see below).
+4. For the plain object, create an object called br.eq3.1.2 ([br.eq3.1.2], do not include brackets) and control it through its inlets (see below).
 
 ## <a name="Use"></a>How To Use
 
-Every control has its own inlet, in the order the controls appear on the panel. Sending a value to an inlet moves its on-screen control too, so the display always matches the sound. Values outside a control's range are limited to that range. Hover over an inlet or outlet in Max to see its range and default.
+Every control has its own inlet, in the order the controls appear on the panel. On br.eq3.ui.1.2, sending a value to an inlet moves its on-screen control too, so the display always matches the sound. On br.eq3.1.2, every control inlet also takes a signal (Float/Int below = Signal too). Values outside a control's range are limited to that range. Hover over an inlet or outlet in Max to see its range and default.
 
 | Inlet | Control | Type | Range | Default |
 |---|---|---|---|---|
@@ -94,17 +114,17 @@ The two crossover inlets sort themselves, so either may hold the higher frequenc
 |---|---|---|
 | 1 | Left Out: EQ'd audio | Signal |
 | 2 | Right Out: EQ'd audio | Signal |
-| 3 | State: the settings as named messages, see [State outlet](#State) | Message |
+| 3 | State (br.eq3.ui.1.2 only): the settings as named messages, see [State outlet](#State) | Message |
 
 **Ideas:**
 - Mono: send the same signal into Left and Right and use one outlet.
 - Kills: drive the mute inlets from a sequencer or a [metro] for rhythmic band kills.
 - Isolating a band: mute the other two, then move the crossovers to hear exactly what that band holds.
-- Sweeps: send a [line] into a crossover inlet; the filters stay stable while it moves.
+- Sweeps: send a [line] into a crossover inlet (or, on br.eq3.1.2, a signal such as an LFO); the filters stay stable while it moves.
 
 ## <a name="State"></a>State outlet
 
-The last outlet (State) sends the current settings as named messages the moment they change, for example `high 3.`, `lowmute 1`, `lowxover 250.`. Use it to keep a display, Mira or another patch in sync. Pick them out by name with [route on high highmute highxover mid midmute lowxover low lowmute], not by position, so your patch keeps working if a later version adds controls. Repeats are filtered out.
+The last outlet of br.eq3.ui.1.2 (State) sends the current settings as named messages the moment they change, for example `high 3.`, `lowmute 1`, `lowxover 250.`. Use it to keep a display, Mira or another patch in sync. Pick them out by name with [route on high highmute highxover mid midmute lowxover low lowmute], not by position, so your patch keeps working if a later version adds controls. Repeats are filtered out.
 
 | Message | Type | Range |
 |---|---|---|
@@ -118,13 +138,15 @@ The last outlet (State) sends the current settings as named messages the moment 
 | low | Float | dB, -24 to 24 |
 | lowmute | Int | 0 / 1 |
 
-Each message carries the same value its inlet takes, so a State message can go straight back into an inlet. The example patch has a State outlet tab that shows this.
+Each message carries the same value its inlet takes, so a State message can go straight back into an inlet. The example patch has a State outlet tab that shows this. The plain br.eq3.1.2 has no State outlet: whatever drives it already knows the values.
 
 ## <a name="Example"></a>Example Patch
 
-Open _br.eq3.example.1.1.maxpat (keep it in the same folder as the abstraction). Pick a source (a drum loop, a voice, plucks at random levels, or a microphone), turn on the audio with the toggle, then raise the gain slider, which starts muted. Start by muting two bands to hear what the third one holds, then move the Fq boxes to set where it starts and ends.
+Open _br.eq3.example.1.2.maxpat (keep it in the same folder as both br.eq3 files). Pick a source (a drum loop, a voice, plucks at random levels, or a microphone), turn on the audio with the toggle, then raise the gain slider, which starts muted. Start by muting two bands to hear what the third one holds, then move the Fq boxes to set where it starts and ends.
 
-The State outlet tab at the top reads the settings by name with [route] into number boxes. Move a control and its number follows.
+The **plain object** tab runs br.eq3.1.2 with no panel on a drum loop: number boxes set Low (-24 dB), Mid, High and Mid Mute, and a slow LFO (a signal) sweeps the Low Crossover, so the low cut opens and closes. Inlets left unconnected sit at their defaults.
+
+The **State outlet** tab reads the settings by name with [route] into number boxes. Move a control and its number follows.
 
 ## <a name="Credits"></a>Credits
 
