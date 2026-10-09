@@ -116,7 +116,7 @@
                         780.0,
                         22.0
                     ],
-                    "text": "gen~",
+                    "text": "gen~ @title br.eq3.1.1",
                     "fontname": "Arial",
                     "fontsize": 12.0,
                     "patcher": {
