@@ -1,6 +1,6 @@
-# Max/MSP Patches, Abstractions, Externals, RNBO, VSTs, and Ableton Max for Live 
+# Max/MSP Patches, Abstractions, Externals, RNBO and VSTs
 
-## br.eq3.1.1
+## br.eq3.1.2
 
 
 
@@ -9,19 +9,28 @@ By Brian Riordan
 [brianriordanmusic@gmail.com](mailto:brianriordanmusic@gmail.com)  
 [https://www.brianriordanmusic.com/](https://www.brianriordanmusic.com/) 
   
-Repository for br.eq3.1.1, with all related files, can be found here: [https://github.com/guaguanco127/br.eq3](https://github.com/guaguanco127/br.eq3)  
+Repository for br.eq3.1.2, with all related files, can be found here: [https://github.com/guaguanco127/br.eq3](https://github.com/guaguanco127/br.eq3)  
 Additional programs can be found here: [https://github.com/guaguanco127/br.max](https://github.com/guaguanco127/br.max)
 
-These files were created with Max 9. 
+These files were created with Max 9, or RNBO.
 
 ## Links
 
+[What's new in 1.2](#New12)  
 [What's new in 1.1](#New11)  
 [About](#About)   
 [State outlet](#State)  
 [Max/MSP Abstraction](https://github.com/guaguanco127/br.eq3/tree/main/MaxMSP%20Abstraction) To use as an abstraction within Max/MSP   
+[Max/MSP RNBO for External or VST](https://github.com/guaguanco127/br.eq3/tree/main/RNBO%20Patchers%20for%20External%20or%20VST) To build your own Max external or VST/AU plugin, or to reuse the code in your own RNBO patches (needs RNBO)  
 
-This is a Max/MSP-only release (no Max for Live device).
+You can use it as an abstraction within Max/MSP. With RNBO you can also build your own Max external or plugin from the included RNBO patch.
+
+## <a name="New12"></a>What's new in 1.2
+
+- **Two files:** br.eq3.1.2 is the plain object, whose control inlets take signals as well as numbers (patch an LFO into a crossover), and br.eq3.ui.1.2 is the version with the number boxes, mute toggles and the State outlet, for a [bpatcher].
+- New RNBO patch, to build your own Max external or VST/AU plugin.
+- Inlets, outlets and the sound are unchanged.
+- A new example tab, plain object: br.eq3.1.2 on a drum loop, driven by number boxes and an LFO.
 
 ## <a name="New11"></a>What's new in 1.1
 
@@ -46,11 +55,13 @@ A stereo 3-band EQ for Max/MSP, built in gen~. Two crossovers split the sound in
 
 **Light on CPU:** When a channel's input has been silent for half a second, its filters stop working until the sound comes back.
 
-The example patch (_br.eq3.example.1.1.maxpat) lets you EQ a drum loop, a voice, plucks or a microphone.
+**Signal control:** The plain br.eq3.1.2 takes signals in every control inlet, so an LFO or envelope can move any setting.
+
+The example patch (_br.eq3.example.1.2.maxpat) lets you EQ a drum loop, a voice, plucks or a microphone, and has a plain object tab with an LFO sweeping a crossover and a State outlet tab.
 
 ## <a name="State"></a>State outlet
 
-The last outlet (State) sends the current settings as named messages the moment they change, for example `high 3.`, `lowmute 1`, `lowxover 250.`. Use it to keep a display, Mira or another patch in sync. Pick them out by name with [route on high highmute highxover mid midmute lowxover low lowmute], not by position, so your patch keeps working if a later version adds controls. Repeats are filtered out.
+The last outlet of br.eq3.ui.1.2 (State) sends the current settings as named messages the moment they change, for example `high 3.`, `lowmute 1`, `lowxover 250.`. Use it to keep a display, Mira or another patch in sync. Pick them out by name with [route on high highmute highxover mid midmute lowxover low lowmute], not by position, so your patch keeps working if a later version adds controls. Repeats are filtered out.
 
 | Message | Type | Range |
 |---|---|---|
