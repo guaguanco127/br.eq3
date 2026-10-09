@@ -1,5 +1,5 @@
 # Max/MSP Abstractions:   
-## br.eq3.1.0
+## br.eq3.1.1
 
 
 
@@ -8,21 +8,29 @@ By Brian Riordan
 [brianriordanmusic@gmail.com](mailto:brianriordanmusic@gmail.com)  
 [https://www.brianriordanmusic.com/](https://www.brianriordanmusic.com/) 
   
-Repository for br.eq3.1.0, with all related files, can be found here: [https://github.com/guaguanco127/br.eq3](https://github.com/guaguanco127/br.eq3)  
+Repository for br.eq3.1.1, with all related files, can be found here: [https://github.com/guaguanco127/br.eq3](https://github.com/guaguanco127/br.eq3)  
 Additional programs can be found here: [https://github.com/guaguanco127/br.max](https://github.com/guaguanco127/br.max)
 
 These files were created with Max 9. 
 
 ## Table of Contents 
 
+[What's new in 1.1](#New11)  
 [About](#About)   
 [What is an abstraction?](#Abstraction)  
 [How To Install](#Install)  
 [How To Use](#Use)  
+[State outlet](#State)  
 [Example Patch](#Example)  
 [Credits](#Credits)  
  
  
+
+## <a name="New11"></a>What's new in 1.1
+
+- New [State outlet](#State) (outlet 3, the last one): it sends the settings as named messages the moment they change, so moving a control, numbers into the inlets and preset recalls all show up. Use it to keep a display, Mira or another patch in sync.
+- The inlets and the other outlets are unchanged, so 1.1 swaps in for 1.0 without rewiring.
+- The example patch has a new State outlet tab that reads the settings by name.
 
 ## <a name="About"></a>About
 
@@ -56,11 +64,11 @@ By saving your logic in an abstraction, you can create modules that can be used 
 
 1. Make sure you have Max 9 installed in your computer. And, make sure you are using a Max patch that is inside of a folder.  
 
-2. Copy and paste br.eq3.1.0.maxpat inside of the same folder as the Max patch you are using.
+2. Copy and paste br.eq3.1.1.maxpat inside of the same folder as the Max patch you are using.
 
 3. To use the built-in controls, create a bpatcher object. Then, go inside of its inspector, select "choose" next to "Patcher File" and select the abstraction located within the same folder as your project. Size the bpatcher to 96 x 123 to show all of the controls.
 
-4. Alternatively, create an object with the abstraction's name ([br.eq3.1.0], do not include brackets) and control it through its inlets (see below).
+4. Alternatively, create an object with the abstraction's name ([br.eq3.1.1], do not include brackets) and control it through its inlets (see below).
 
 ## <a name="Use"></a>How To Use
 
@@ -86,6 +94,7 @@ The two crossover inlets sort themselves, so either may hold the higher frequenc
 |---|---|---|
 | 1 | Left Out: EQ'd audio | Signal |
 | 2 | Right Out: EQ'd audio | Signal |
+| 3 | State: the settings as named messages, see [State outlet](#State) | Message |
 
 **Ideas:**
 - Mono: send the same signal into Left and Right and use one outlet.
@@ -93,9 +102,29 @@ The two crossover inlets sort themselves, so either may hold the higher frequenc
 - Isolating a band: mute the other two, then move the crossovers to hear exactly what that band holds.
 - Sweeps: send a [line] into a crossover inlet; the filters stay stable while it moves.
 
+## <a name="State"></a>State outlet
+
+The last outlet (State) sends the current settings as named messages the moment they change, for example `high 3.`, `lowmute 1`, `lowxover 250.`. Use it to keep a display, Mira or another patch in sync. Pick them out by name with [route on high highmute highxover mid midmute lowxover low lowmute], not by position, so your patch keeps working if a later version adds controls. Repeats are filtered out.
+
+| Message | Type | Range |
+|---|---|---|
+| on | Int | 0 = untouched input, 1 = EQ on |
+| high | Float | dB, -24 to 24 |
+| highmute | Int | 0 / 1 |
+| highxover | Float | Hz, 50 to 10000 |
+| mid | Float | dB, -24 to 24 |
+| midmute | Int | 0 / 1 |
+| lowxover | Float | Hz, 50 to 10000 |
+| low | Float | dB, -24 to 24 |
+| lowmute | Int | 0 / 1 |
+
+Each message carries the same value its inlet takes, so a State message can go straight back into an inlet. The example patch has a State outlet tab that shows this.
+
 ## <a name="Example"></a>Example Patch
 
-Open _br.eq3.example.1.0.maxpat (keep it in the same folder as the abstraction). Pick a source (a drum loop, a voice, plucks at random levels, or a microphone), turn on the audio with the toggle, then raise the gain slider, which starts muted. Start by muting two bands to hear what the third one holds, then move the Fq boxes to set where it starts and ends.
+Open _br.eq3.example.1.1.maxpat (keep it in the same folder as the abstraction). Pick a source (a drum loop, a voice, plucks at random levels, or a microphone), turn on the audio with the toggle, then raise the gain slider, which starts muted. Start by muting two bands to hear what the third one holds, then move the Fq boxes to set where it starts and ends.
+
+The State outlet tab at the top reads the settings by name with [route] into number boxes. Move a control and its number follows.
 
 ## <a name="Credits"></a>Credits
 

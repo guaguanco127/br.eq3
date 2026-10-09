@@ -1,6 +1,6 @@
 # Max/MSP Patches, Abstractions, Externals, RNBO, VSTs, and Ableton Max for Live 
 
-## br.eq3.1.0
+## br.eq3.1.1
 
 
 
@@ -9,17 +9,25 @@ By Brian Riordan
 [brianriordanmusic@gmail.com](mailto:brianriordanmusic@gmail.com)  
 [https://www.brianriordanmusic.com/](https://www.brianriordanmusic.com/) 
   
-Repository for br.eq3.1.0, with all related files, can be found here: [https://github.com/guaguanco127/br.eq3](https://github.com/guaguanco127/br.eq3)  
+Repository for br.eq3.1.1, with all related files, can be found here: [https://github.com/guaguanco127/br.eq3](https://github.com/guaguanco127/br.eq3)  
 Additional programs can be found here: [https://github.com/guaguanco127/br.max](https://github.com/guaguanco127/br.max)
 
 These files were created with Max 9. 
 
 ## Links
 
+[What's new in 1.1](#New11)  
 [About](#About)   
+[State outlet](#State)  
 [Max/MSP Abstraction](https://github.com/guaguanco127/br.eq3/tree/main/MaxMSP%20Abstraction) To use as an abstraction within Max/MSP   
 
 This is a Max/MSP-only release (no Max for Live device).
+
+## <a name="New11"></a>What's new in 1.1
+
+- New [State outlet](#State) (outlet 3, the last one): it sends the settings as named messages the moment they change, so moving a control, numbers into the inlets and preset recalls all show up. Use it to keep a display, Mira or another patch in sync.
+- The inlets and the other outlets are unchanged, so 1.1 swaps in for 1.0 without rewiring.
+- The example patch has a new State outlet tab that reads the settings by name.
 
 ## <a name="About"></a>About
 
@@ -38,7 +46,25 @@ A stereo 3-band EQ for Max/MSP, built in gen~. Two crossovers split the sound in
 
 **Light on CPU:** When a channel's input has been silent for half a second, its filters stop working until the sound comes back.
 
-The example patch (_br.eq3.example.1.0.maxpat) lets you EQ a drum loop, a voice, plucks or a microphone.
+The example patch (_br.eq3.example.1.1.maxpat) lets you EQ a drum loop, a voice, plucks or a microphone.
+
+## <a name="State"></a>State outlet
+
+The last outlet (State) sends the current settings as named messages the moment they change, for example `high 3.`, `lowmute 1`, `lowxover 250.`. Use it to keep a display, Mira or another patch in sync. Pick them out by name with [route on high highmute highxover mid midmute lowxover low lowmute], not by position, so your patch keeps working if a later version adds controls. Repeats are filtered out.
+
+| Message | Type | Range |
+|---|---|---|
+| on | Int | 0 = untouched input, 1 = EQ on |
+| high | Float | dB, -24 to 24 |
+| highmute | Int | 0 / 1 |
+| highxover | Float | Hz, 50 to 10000 |
+| mid | Float | dB, -24 to 24 |
+| midmute | Int | 0 / 1 |
+| lowxover | Float | Hz, 50 to 10000 |
+| low | Float | dB, -24 to 24 |
+| lowmute | Int | 0 / 1 |
+
+Each message carries the same value its inlet takes, so a State message can go straight back into an inlet. The example patch has a State outlet tab that shows this.
 
 ## <a name="Credits"></a>Credits
 
