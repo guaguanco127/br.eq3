@@ -1,8 +1,8 @@
 # Max/MSP RNBO Patch for External Creation: br.eq3.rnbo.1.2  
    
 By Brian Riordan  
-[guaguanco127@gmail.com](mailto:guaguanco127@gmail.com)  
-[brianriordanmusic@gmail.com](mailto:brianriordanmusic@gmail.com)  
+guaguanco127 [at] gmail [dot] com  
+brianriordanmusic [at] gmail [dot] com  
 [https://www.brianriordanmusic.com/](https://www.brianriordanmusic.com/) 
   
 Repository for br.eq3.1.2, with all related files, can be found here: [https://github.com/guaguanco127/br.eq3](https://github.com/guaguanco127/br.eq3)  
