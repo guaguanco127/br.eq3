@@ -131,8 +131,8 @@
                         "rect": [
                             100.0,
                             100.0,
-                            600.0,
-                            450.0
+                            1105.5,
+                            610.0
                         ],
                         "bglocked": 0,
                         "openinpresentation": 0,
@@ -175,9 +175,9 @@
                                         ""
                                     ],
                                     "patching_rect": [
-                                        50.0,
                                         20.0,
-                                        30.0,
+                                        20.0,
+                                        155.0,
                                         22.0
                                     ],
                                     "text": "in 1 @comment Audio L",
@@ -195,9 +195,9 @@
                                         ""
                                     ],
                                     "patching_rect": [
-                                        130.0,
+                                        190.0,
                                         20.0,
-                                        30.0,
+                                        155.0,
                                         22.0
                                     ],
                                     "text": "in 2 @comment Audio R",
@@ -215,9 +215,9 @@
                                         ""
                                     ],
                                     "patching_rect": [
-                                        210.0,
+                                        360.0,
                                         20.0,
-                                        30.0,
+                                        247.0,
                                         22.0
                                     ],
                                     "text": "in 3 @comment Active 0/1 @default 1",
@@ -235,14 +235,15 @@
                                         ""
                                     ],
                                     "patching_rect": [
-                                        290.0,
+                                        622.0,
                                         20.0,
-                                        30.0,
-                                        22.0
+                                        200.0,
+                                        36.0
                                     ],
                                     "text": "in 4 @comment Low crossover Hz @default 400",
                                     "fontname": "Arial",
-                                    "fontsize": 12.0
+                                    "fontsize": 12.0,
+                                    "linecount": 2
                                 }
                             },
                             {
@@ -255,14 +256,15 @@
                                         ""
                                     ],
                                     "patching_rect": [
-                                        370.0,
+                                        837.0,
                                         20.0,
-                                        30.0,
-                                        22.0
+                                        200.0,
+                                        36.0
                                     ],
                                     "text": "in 5 @comment High crossover Hz @default 4000",
                                     "fontname": "Arial",
-                                    "fontsize": 12.0
+                                    "fontsize": 12.0,
+                                    "linecount": 2
                                 }
                             },
                             {
@@ -275,14 +277,15 @@
                                         ""
                                     ],
                                     "patching_rect": [
-                                        450.0,
-                                        20.0,
-                                        30.0,
-                                        22.0
+                                        210.5,
+                                        132.0,
+                                        200.0,
+                                        36.0
                                     ],
                                     "text": "in 6 @comment Low gain dB -24 to 24 @default 0",
                                     "fontname": "Arial",
-                                    "fontsize": 12.0
+                                    "fontsize": 12.0,
+                                    "linecount": 2
                                 }
                             },
                             {
@@ -295,14 +298,15 @@
                                         ""
                                     ],
                                     "patching_rect": [
-                                        530.0,
-                                        20.0,
-                                        30.0,
-                                        22.0
+                                        425.5,
+                                        132.0,
+                                        200.0,
+                                        36.0
                                     ],
                                     "text": "in 7 @comment Mid gain dB -24 to 24 @default 0",
                                     "fontname": "Arial",
-                                    "fontsize": 12.0
+                                    "fontsize": 12.0,
+                                    "linecount": 2
                                 }
                             },
                             {
@@ -315,14 +319,15 @@
                                         ""
                                     ],
                                     "patching_rect": [
-                                        610.0,
-                                        20.0,
-                                        30.0,
-                                        22.0
+                                        640.5,
+                                        132.0,
+                                        200.0,
+                                        36.0
                                     ],
                                     "text": "in 8 @comment High gain dB -24 to 24 @default 0",
                                     "fontname": "Arial",
-                                    "fontsize": 12.0
+                                    "fontsize": 12.0,
+                                    "linecount": 2
                                 }
                             },
                             {
@@ -335,14 +340,15 @@
                                         ""
                                     ],
                                     "patching_rect": [
-                                        690.0,
-                                        20.0,
-                                        30.0,
-                                        22.0
+                                        855.5,
+                                        132.0,
+                                        200.0,
+                                        36.0
                                     ],
                                     "text": "in 9 @comment Low mute 0/1 @default 0",
                                     "fontname": "Arial",
-                                    "fontsize": 12.0
+                                    "fontsize": 12.0,
+                                    "linecount": 2
                                 }
                             },
                             {
@@ -355,14 +361,15 @@
                                         ""
                                     ],
                                     "patching_rect": [
-                                        770.0,
-                                        20.0,
-                                        30.0,
-                                        22.0
+                                        362.9,
+                                        232.0,
+                                        200.0,
+                                        36.0
                                     ],
                                     "text": "in 10 @comment Mid mute 0/1 @default 0",
                                     "fontname": "Arial",
-                                    "fontsize": 12.0
+                                    "fontsize": 12.0,
+                                    "linecount": 2
                                 }
                             },
                             {
@@ -375,14 +382,15 @@
                                         ""
                                     ],
                                     "patching_rect": [
-                                        850.0,
-                                        20.0,
-                                        30.0,
-                                        22.0
+                                        577.9,
+                                        232.0,
+                                        200.0,
+                                        36.0
                                     ],
                                     "text": "in 11 @comment High mute 0/1 @default 0",
                                     "fontname": "Arial",
-                                    "fontsize": 12.0
+                                    "fontsize": 12.0,
+                                    "linecount": 2
                                 }
                             },
                             {
@@ -396,8 +404,8 @@
                                         ""
                                     ],
                                     "patching_rect": [
-                                        50.0,
-                                        80.0,
+                                        20.0,
+                                        308.0,
                                         400.0,
                                         200.0
                                     ],
@@ -415,9 +423,9 @@
                                     "numoutlets": 0,
                                     "outlettype": [],
                                     "patching_rect": [
-                                        50.0,
-                                        320.0,
-                                        30.0,
+                                        20.0,
+                                        538.0,
+                                        161.0,
                                         22.0
                                     ],
                                     "text": "out 1 @comment Audio L",
@@ -433,9 +441,9 @@
                                     "numoutlets": 0,
                                     "outlettype": [],
                                     "patching_rect": [
-                                        130.0,
-                                        320.0,
-                                        30.0,
+                                        401.0,
+                                        538.0,
+                                        161.0,
                                         22.0
                                     ],
                                     "text": "out 2 @comment Audio R",
@@ -466,6 +474,12 @@
                                     "destination": [
                                         "obj-12",
                                         1
+                                    ],
+                                    "midpoints": [
+                                        199.5,
+                                        71.0,
+                                        67.6,
+                                        71.0
                                     ]
                                 }
                             },
@@ -478,6 +492,12 @@
                                     "destination": [
                                         "obj-12",
                                         2
+                                    ],
+                                    "midpoints": [
+                                        369.5,
+                                        83.0,
+                                        105.7,
+                                        83.0
                                     ]
                                 }
                             },
@@ -490,6 +510,12 @@
                                     "destination": [
                                         "obj-12",
                                         3
+                                    ],
+                                    "midpoints": [
+                                        631.5,
+                                        95.0,
+                                        143.8,
+                                        95.0
                                     ]
                                 }
                             },
@@ -502,6 +528,12 @@
                                     "destination": [
                                         "obj-12",
                                         4
+                                    ],
+                                    "midpoints": [
+                                        846.5,
+                                        107.0,
+                                        181.9,
+                                        107.0
                                     ]
                                 }
                             },
@@ -526,6 +558,12 @@
                                     "destination": [
                                         "obj-12",
                                         6
+                                    ],
+                                    "midpoints": [
+                                        435.0,
+                                        183.0,
+                                        258.1,
+                                        183.0
                                     ]
                                 }
                             },
@@ -538,6 +576,12 @@
                                     "destination": [
                                         "obj-12",
                                         7
+                                    ],
+                                    "midpoints": [
+                                        650.0,
+                                        195.0,
+                                        296.2,
+                                        195.0
                                     ]
                                 }
                             },
@@ -550,6 +594,12 @@
                                     "destination": [
                                         "obj-12",
                                         8
+                                    ],
+                                    "midpoints": [
+                                        865.0,
+                                        207.0,
+                                        334.3,
+                                        207.0
                                     ]
                                 }
                             },
@@ -574,6 +624,12 @@
                                     "destination": [
                                         "obj-12",
                                         10
+                                    ],
+                                    "midpoints": [
+                                        587.4,
+                                        283.0,
+                                        410.5,
+                                        283.0
                                     ]
                                 }
                             },
